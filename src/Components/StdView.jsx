@@ -1,5 +1,5 @@
 import React,{useState, useEffect } from 'react';
-import {Link, useParams} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 
 
 const StdView = () =>{
@@ -7,34 +7,34 @@ const StdView = () =>{
         const [courseData, setCourseData] = useState([]);
 
         useEffect(() => {
-            fetch(`http://127.0.0.1:8000/api/studentapis/listdetails/${id}`)
+            fetch(`http://127.0.0.1:8000/api/studentapis/listdetails/${id}/`)
             .then(respose => respose.json())
             .then(data => setCourseData(data))
         }, )
 
     return(
         <React.Fragment>
-            <div className="container mt-5">
-                <div className="row">
-                    <div className="col-lg-9">
-                        <p className="lead">{courseData.description}</p></div>
-
-                    <div className="col-lg-3">
-                            <div className="card">
-                                <img src="" alt="" />
-                                <div className="card-body">
-                                    <h5>{courseData.name}</h5>
-                                    <h5>{courseData.roll}</h5>
-                                    <h5>{courseData.school}</h5>
-                                    <h5>{courseData.address}</h5>
-                                    <h5>{courseData.maths}</h5>
-                                    <h5>{courseData.sci}</h5>
-                                    <h5>{courseData.rng}</h5>
+            <div className="App">
+                <div className="App-header">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-lg-3">
+                                <div className="card">
+                                    <div className="card-body">
+                                        <h1 className="text-dark">{courseData.name}</h1>
+                                        <h2 className="text-dark">{courseData.roll}</h2>
+                                        <h3 className="text-dark">{courseData.school}</h3>
+                                        <h4 className="text-dark">{courseData.address}</h4>
+                                        <h5 className="text-dark">{courseData.maths}</h5>
+                                        <h6 className="text-dark">{courseData.sci}</h6>
+                                        <h7 className="text-dark">{courseData.eng}</h7>
+                                    </div>
                                 </div>
                             </div>
+                        </div>
                     </div>
                 </div>
-            </div> 
+            </div>
         </React.Fragment>
     )
 }

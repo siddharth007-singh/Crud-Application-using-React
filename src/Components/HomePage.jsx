@@ -29,11 +29,11 @@ const HomePage = ()=>{
     }).then(data=>data.json())
   };
   
-  const delBtn = ()=>{
-    return fetch("http://127.0.0.1:8000/api/studentapis/delete/${id}",{
-      method:"DELETE"
-    })
-  };
+  // const delBtn = ()=>{
+  //   return fetch("http://127.0.0.1:8000/api/studentapis/delete/${id}",{
+  //     method:"DELETE"
+  //   })
+  // };
 
   return (
     <div className="App">
@@ -73,15 +73,15 @@ const HomePage = ()=>{
                   <th>School</th>
                   <th>Action</th>
                 </tr>
-                {data.map((value,key)=>(
-                  <tr>  
+                {data.map((value,index)=>(
+                  <tr key={index}>  
                     <td>{value.id}</td>
                     <td>{value.name}</td>
                     <td>{value.roll}</td>
                     <td>{value.school}</td>
                     <td>
                       <ButtonGroup aria-label="Basic example">
-                        <a href={`/delete/${value.id}`} className="btn btn-danger" onClick={delBtn}>Delete</a>
+                        <a href={`/delete/${value.id}`} className="btn btn-danger">Delete</a>
                         <Link to={{pathname: `/View/${value.id}`}} className="btn btn-info">view</Link>
                       </ButtonGroup>
                     </td>

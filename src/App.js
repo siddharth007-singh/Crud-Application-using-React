@@ -11,7 +11,7 @@ const App = () => {
       <Router>
         <Switch>
           <Route exact path="/" component={HomePage}/>
-          <Route exact path="View/" component={StdView}/>
+          <Route exact path="/View/:id" component={StdView}/>
         </Switch>
       </Router>
     </React.Fragment> 
